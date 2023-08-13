@@ -13,7 +13,7 @@
             foreach (GlobalTargetInfo target in targets)
             {
                 CompQuality comp = target.Thing.GetInnerIfMinified().TryGetComp<CompQuality>();
-                if (comp is not {Quality: < QualityCategory.Excellent}) return;
+                if (comp is not {Quality: < QualityCategory.Legendary}) return;
                 comp.SetQuality(comp.Quality + 1, ArtGenerationContext.Colony);
                 for (int i = 0; i < 16; i++) FleckMaker.ThrowMicroSparks(target.Thing.TrueCenter(), this.pawn.Map);
             }
@@ -30,7 +30,7 @@
                 return false;
             }
 
-            if (comp.Quality >= QualityCategory.Excellent)
+            if (comp.Quality >= QualityCategory.Legendary)
             {
                 if (showMessages) Messages.Message("VPE.QualityTooHigh".Translate(), MessageTypeDefOf.RejectInput, false);
                 return false;
